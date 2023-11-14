@@ -2,13 +2,19 @@ spring:
   application:
     name: "configserver"
   profiles:
-    active: native
+    # active: native (classpath or file)
+    active: git
   cloud:
     config:
       server:
-        native:
+        #native:
           # search-locations: "classpath:/config"
-          search-locations: "file:///C://Users//000V4T744//Documents//tbank//config"
-
+         # search-locations: "file:///C://Users//000V4T744//Documents//tbank//config"
+        git:
+          uri: "https://github.com/guneetbh/tbank-configs.git"
+          default-label: main  # default branch
+          timeout: 5
+          clone-on-start: true  # clone repo in the start of config server
+          force-pull: true #
 server:
   port: 8071
