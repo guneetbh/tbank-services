@@ -16,7 +16,16 @@ spring:
           timeout: 5
           clone-on-start: true  # clone repo in the start of config server
           force-pull: true #
-
+  rabbitmq:
+    host: "localhost"
+    port: 5672
+    username: "guest"
+    password: "guest"
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
 encrypt:
   key: "NW5xMxYMUNNW5xMxYMUN"
 server:
